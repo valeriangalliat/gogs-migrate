@@ -1,0 +1,49 @@
+{
+  "name": "gogs-migrate",
+  "version": "1.0.0",
+  "description": "Migrate existing repositories on a Gogs instance.",
+  "homepage": "https://github.com/valeriangalliat/gogs-migrate",
+  "license": {
+    "type": "Unlicense",
+    "url": "http://unlicense.org/"
+  },
+  "author": {
+    "name": "Valérian Galliat",
+    "url": "http://val.codejam.info/"
+  },
+  "files": [
+    "bin/gogs-migrate",
+    "README.md",
+    "UNLICENSE",
+    "cli.js",
+    "github.js",
+    "index.js",
+    "util.js"
+  ],
+  "bin": [
+    "bin/gogs-migrate"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valeriangalliat/gogs-migrate"
+  },
+  "dependencies": {
+    "babel-runtime": "^4.6.6",
+    "chalk": "^1.0.0",
+    "docopt": "^0.4.1",
+    "es6-denodeify": "^0.1.1",
+    "extend": "^2.0.0",
+    "highland": "^2.4.0",
+    "js-yaml": "^3.2.7",
+    "parse-link-header": "^0.2.0",
+    "read": "^1.0.5",
+    "request": "^2.53.0"
+  },
+  "devDependencies": {
+    "babel": "^4.6.6"
+  },
+  "scripts": {
+    "build": "babel src -d .",
+    "prepublish": "$npm_package_scripts_build"
+  }
+}
