@@ -1,6 +1,6 @@
 {
   "name": "gogs-migrate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Migrate existing repositories on a Gogs instance.",
   "homepage": "https://github.com/valeriangalliat/gogs-migrate",
   "license": {

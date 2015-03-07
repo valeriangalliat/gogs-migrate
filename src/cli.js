@@ -71,7 +71,7 @@ const prompt = opts =>
 
 // Parse options, apply configuration file and prompt missing values.
 const opts = argv =>
-  _([docopt(doc, { argv })])
+  _([docopt(doc, { argv, version: require('./package').version })])
     .flatMap(config)
     .flatMap(prompt)
 
