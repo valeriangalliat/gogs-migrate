@@ -40,7 +40,8 @@
     "request": "^2.53.0"
   },
   "devDependencies": {
-    "babel": "^4.6.6"
+    "babel": "^4.6.6",
+    "help2md": "^1.0.0"
   },
   "scripts": {
     "build": "babel src -d .",
