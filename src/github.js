@@ -1,5 +1,4 @@
 const { request } = require('./util')
-const extend = require('extend')
 const link = require('parse-link-header')
 
 // Get raw API pages.
@@ -9,7 +8,7 @@ const pages = opts =>
       const next = link(response.headers['link']).next
 
       return [response].concat(
-        !next ? [] : pages(extend({}, opts, { url: next.url }))
+        !next ? [] : pages(Object.assign({}, opts, { url: next.url }))
       )
     })
 

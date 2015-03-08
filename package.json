@@ -32,7 +32,6 @@
     "chalk": "^1.0.0",
     "docopt": "^0.4.1",
     "es6-denodeify": "^0.1.1",
-    "extend": "^2.0.0",
     "highland": "^2.4.0",
     "js-yaml": "^3.2.7",
     "parse-link-header": "^0.2.0",

@@ -1,15 +1,14 @@
 const { request } = require('./util')
-const extend = require('extend')
 
 const err = (repo, message) =>
-  extend(new Error(message), { repo })
+  Object.assign(new Error(message), { repo })
 
 // Migrate repository to Gogs.
 export default opts => repo =>
   request(`${opts.prefix}/api/v1/repos/migrate`, {
     method: 'post',
     json: true,
-    form: extend(
+    form: Object.assign(
       { username: opts.user, password: opts.pass, uid: opts.uid },
 
       {
@@ -32,7 +31,7 @@ export default opts => repo =>
       {}
     ),
   })
-    .map(response => extend({ repo }, response.body))
+    .map(response => Object.assign({ repo }, response.body))
 
     .doto(({ error }) => {
       if (error) throw err(repo, error)

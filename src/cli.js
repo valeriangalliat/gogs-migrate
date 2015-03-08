@@ -33,7 +33,7 @@ Options:
 const setProperties = object =>
   _.pipeline(
     _.map(args => _.set(...args)),
-    _.reduce(_.extend(object, {}), (opts, set) => set(opts))
+    _.reduce(Object.assign({}, object), (opts, set) => set(opts))
   )
 
 // Merge options and configuration file.
