@@ -12,8 +12,8 @@ export default opts => repo =>
       { username: opts.user, password: opts.pass, uid: opts.uid },
 
       {
-        url: repo.url,
         clone_addr: repo.url,
+        repo_name: repo.name,
         desc: repo.desc,
       },
 
