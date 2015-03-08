@@ -13,8 +13,7 @@ export default opts => repo =>
 
       {
         url: repo.url,
-        // clone_addr: repo.url, // For next Gogs release.
-        repo_name: repo.name,
+        clone_addr: repo.url,
         desc: repo.desc,
       },
 
@@ -33,11 +32,6 @@ export default opts => repo =>
   })
     .map(response => Object.assign({ repo }, response.body))
 
-    .doto(({ error }) => {
-      if (error) throw err(repo, error)
+    .doto(({ message }) => {
+      if (message) throw err(repo, message)
     })
-
-    // For next Gogs release.
-    // .doto(({ message }) => {
-    //   if (message) throw err(repo, message)
-    // })
