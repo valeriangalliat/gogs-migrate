@@ -1,6 +1,6 @@
 {
   "name": "gogs-migrate",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Migrate existing repositories on a Gogs instance.",
   "homepage": "https://github.com/valeriangalliat/gogs-migrate",
   "license": {
@@ -25,7 +25,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/valeriangalliat/gogs-migrate"
+    "url": "https://github.com/valeriangalliat/gogs-migrate.git"
   },
   "dependencies": {
     "babel-runtime": "^4.6.6",
