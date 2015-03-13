@@ -1,6 +1,5 @@
 {
   "experimental": true,
-  "playground": true,
-  "loose": ["all"],
+  "loose": true,
   "optional": ["runtime"]
 }
