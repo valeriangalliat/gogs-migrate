@@ -56,7 +56,7 @@ const greyParens = text =>
     .replace(')', ')' + chalk.styles.grey.close)
 
 const ask = question =>
-  `${chalk.green('>>')} ${greyParens(question)}${chalk.styles.cyan.open}`
+  `${chalk.blue('>>')} ${greyParens(question)}${chalk.styles.cyan.open}`
 
 // Prompt for required options if needed.
 const prompt = opts =>
