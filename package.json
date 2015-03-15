@@ -34,9 +34,11 @@
     "es6-denodeify": "^0.1.1",
     "highland": "^2.4.0",
     "js-yaml": "^3.2.7",
+    "lodash.zipobject": "^3.0.0",
     "parse-link-header": "^0.2.0",
     "read": "^1.0.5",
-    "request": "^2.53.0"
+    "request": "^2.53.0",
+    "yaml-update": "valeriangalliat/yaml-update"
   },
   "devDependencies": {
     "babel": "^4.6.6",
