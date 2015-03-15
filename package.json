@@ -46,6 +46,7 @@
   },
   "scripts": {
     "build": "babel src -d .",
-    "prepublish": "$npm_package_scripts_build"
+    "prepublish": "$npm_package_scripts_build",
+    "readme": "bin/gogs-migrate --help | help2md-in-place README.md"
   }
 }
