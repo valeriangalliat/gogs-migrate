@@ -58,15 +58,16 @@ Name | Description
 `-h, --help` | Show help.
 `-V, --version` | Show version.
 `-c, --config=<path>` | Read options from given YAML configuration file.
-`--gogs=<prefix>` | Gogs URL prefix (like `https://git.example.com`).
+`--gogs-prefix=<prefix>` | Gogs URL prefix (like `https://git.example.com`).
 `--gogs-user=<user>` | Gogs username (required, prompt otherwise).
 `--gogs-pass=<pass>` | Gogs password (required, prompt otherwise).
 `--gogs-uid=<uid>` | Gogs UID (required, prompt otherwise).
-`--github=<prefix>` | GitHub API prefix (defaults to `https://api.github.com`).
+`--github-prefix=<prefix>` | GitHub API prefix (defaults to `https://api.github.com`).
 `--github-user=<user>` | GitHub username to stream repositories from.
 `--mirror` | Create mirror repositories.
 `--private` | Force private repositories (copy source visibility otherwise).
 `--with-forks` | Include forked repositories.
+`--save` | Save migrated repositories to configuration file to avoid downloading them again the next time.
 
 <!-- END USAGE -->
 

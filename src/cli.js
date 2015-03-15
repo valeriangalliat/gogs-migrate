@@ -18,20 +18,20 @@ Usage:
   gogs-migrate [options]
 
 Options:
-  -h, --help            Show help.
-  -V, --version         Show version.
-  -c, --config=<path>   Read options from given YAML configuration file.
-  --gogs=<prefix>       Gogs URL prefix (like \`https://git.example.com\`).
-  --gogs-user=<user>    Gogs username (required, prompt otherwise).
-  --gogs-pass=<pass>    Gogs password (required, prompt otherwise).
-  --gogs-uid=<uid>      Gogs UID (required, prompt otherwise).
-  --github=<prefix>     GitHub API prefix (defaults to \`https://api.github.com\`).
-  --github-user=<user>  GitHub username to stream repositories from.
-  --mirror              Create mirror repositories.
-  --private             Force private repositories (copy source visibility otherwise).
-  --with-forks          Include forked repositories.
-  --save                Save migrated repositories to configuration file to avoid
-                        downloading them again the next time.
+  -h, --help                Show help.
+  -V, --version             Show version.
+  -c, --config=<path>       Read options from given YAML configuration file.
+  --gogs-prefix=<prefix>    Gogs URL prefix (like \`https://git.example.com\`).
+  --gogs-user=<user>        Gogs username (required, prompt otherwise).
+  --gogs-pass=<pass>        Gogs password (required, prompt otherwise).
+  --gogs-uid=<uid>          Gogs UID (required, prompt otherwise).
+  --github-prefix=<prefix>  GitHub API prefix (defaults to \`https://api.github.com\`).
+  --github-user=<user>      GitHub username to stream repositories from.
+  --mirror                  Create mirror repositories.
+  --private                 Force private repositories (copy source visibility otherwise).
+  --with-forks              Include forked repositories.
+  --save                    Save migrated repositories to configuration file to avoid
+                            downloading them again the next time.
 `.trim()
 
 // Edit YAML in place (wrapper to avoid passing JSON).
@@ -77,7 +77,7 @@ const ask = question =>
 // Prompt for required options if needed.
 const prompt = opts =>
   _([
-    ['--gogs', { prompt: ask('Gogs URL (example: `https://git.example.com`):') }],
+    ['--gogs-prefix', { prompt: ask('Gogs URL (example: `https://git.example.com`):') }],
     ['--gogs-user', { prompt: ask('Gogs user:') }],
     ['--gogs-pass', { prompt: ask('Gogs pass (will not echo):'), silent: true }],
     ['--gogs-uid', { prompt: ask('Gogs UID:') }],
@@ -167,7 +167,7 @@ const saveStream = (opts, repoStream) =>
 const main = opts => {
   const repoStream = repos(opts)
     .flatMap(migrate({
-      prefix: opts['--gogs'],
+      prefix: opts['--gogs-prefix'],
       user: opts['--gogs-user'],
       pass: opts['--gogs-pass'],
       uid: opts['--gogs-uid'],
