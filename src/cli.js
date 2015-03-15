@@ -103,7 +103,7 @@ const repos = opts =>
     // From GitHub.
     opts['--github-user'] && github.repos({
       user: opts['--github-user'],
-      prefix: opts['--github-prefix'] || undefined
+      prefix: opts['--github-prefix'] || undefined,
     }),
 
     // Add sources here? Bitbucket, stdin, etc.
