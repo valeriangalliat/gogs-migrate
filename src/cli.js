@@ -1,5 +1,5 @@
 const _ = require('highland')
-const { denodeify, request } = require('./util')
+const { denodeify } = require('./util')
 
 const chalk = require('chalk')
 const { docopt } = require('docopt')
