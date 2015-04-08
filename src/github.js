@@ -5,7 +5,9 @@ const link = require('parse-link-header')
 const pages = opts =>
   request(opts)
     .flatMap(response => {
-      const next = link(response.headers['link']).next
+      // Default to single space to force `link` to return an object.
+      // Empty string or `null` would result in `null`.
+      const next = link(response.headers.link || ' ').next
 
       return [response].concat(
         !next ? [] : pages(Object.assign({}, opts, { url: next.url }))
