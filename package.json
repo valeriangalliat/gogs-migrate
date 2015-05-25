@@ -3,10 +3,7 @@
   "version": "1.2.2",
   "description": "Migrate existing repositories on a Gogs instance.",
   "homepage": "https://github.com/valeriangalliat/gogs-migrate",
-  "license": {
-    "type": "Unlicense",
-    "url": "http://unlicense.org/"
-  },
+  "license": "Unlicense",
   "author": {
     "name": "Valérian Galliat",
     "url": "http://val.codejam.info/"
