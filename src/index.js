@@ -16,21 +16,21 @@ export default opts => repo =>
       {
         clone_addr: repo.url,
         repo_name: repo.name,
-        desc: repo.desc,
+        desc: repo.desc
       },
 
       repo.private && { private: 'on' },
 
       opts.auth && {
         auth_username: opts.auth.user,
-        auth_password: opts.auth.pass,
+        auth_password: opts.auth.pass
       },
 
       opts.mirror && { mirror: 'on' },
       opts.private && { private: 'on' },
 
       {}
-    ),
+    )
   })
     .doto(response => {
       if (response.statusCode === 500) return // 500 errors have a JSON message.

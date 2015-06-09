@@ -53,7 +53,7 @@ const config = opts => !opts['--config']
       .map(source => [source, yaml.safeLoad(source)])
       .map(([source, data]) => Object.assign({}, data, {
         'config-source': source,
-        'config-object': data,
+        'config-object': data
       }))
 
       // Convert to options and extend `opts`.
@@ -80,7 +80,7 @@ const prompt = opts =>
     ['--gogs-prefix', { prompt: ask('Gogs URL (example: `https://git.example.com`):') }],
     ['--gogs-user', { prompt: ask('Gogs user:') }],
     ['--gogs-pass', { prompt: ask('Gogs pass (will not echo):'), silent: true }],
-    ['--gogs-uid', { prompt: ask('Gogs UID:') }],
+    ['--gogs-uid', { prompt: ask('Gogs UID:') }]
   ])
     .flatMap(maybePrompt(opts))
     .pipe(setProperties(opts))
@@ -93,7 +93,7 @@ const opts = argv =>
 
     // Make sure `--ignore` is a hash.
     .map(opts => Object.assign({}, opts, {
-      '--ignore': zipObject(opts['--ignore']),
+      '--ignore': zipObject(opts['--ignore'])
     }))
 
 // Get repository stream from configured sources.
@@ -103,8 +103,8 @@ const repos = opts =>
     // From GitHub.
     opts['--github-user'] && github.repos({
       user: opts['--github-user'],
-      prefix: opts['--github-prefix'] || undefined,
-    }),
+      prefix: opts['--github-prefix'] || undefined
+    })
 
     // Add sources here? Bitbucket, stdin, etc.
 
@@ -130,13 +130,13 @@ const saveConfig = (opts, repos) =>
   [[opts['--config'], yamlEdit(
     opts['--config-source'],
     Object.assign(opts['--config-object'], {
-      ignore: (Object.keys(opts['--ignore'] || {})).concat(repos),
+      ignore: (Object.keys(opts['--ignore'] || {})).concat(repos)
     })
   )]]
 
 const saveNew = repos =>
   _(read({
-    prompt: ask('Where to save migrated repos (file will be overwritten)?'),
+    prompt: ask('Where to save migrated repos (file will be overwritten)?')
   }))
     .map(file => [file, yaml.safeDump({ ignore: repos })])
 
@@ -172,7 +172,7 @@ const main = opts => {
       pass: opts['--gogs-pass'],
       uid: opts['--gogs-uid'],
       mirror: opts['--mirror'],
-      private: opts['--private'],
+      private: opts['--private']
     }))
 
   const stream = migrateStream(repoStream)

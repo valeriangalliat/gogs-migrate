@@ -20,7 +20,7 @@ export const rawRepos =
     pages({
       url: `${prefix}/users/${user}/repos`,
       headers: { 'user-agent': agent },
-      json: true,
+      json: true
     })
       .flatten()
       .flatMap(response => response.body)
@@ -32,7 +32,7 @@ export const parse = repo =>
     name: repo.name,
     desc: repo.description,
     fork: repo.fork,
-    private: repo.private,
+    private: repo.private
   })
 
 // Get repositories in Gogs format.
