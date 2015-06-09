@@ -24,6 +24,12 @@
     "type": "git",
     "url": "https://github.com/valeriangalliat/gogs-migrate.git"
   },
+  "scripts": {
+    "build": "babel src -d .",
+    "prepublish": "npm run build",
+    "test": "cd src && standard",
+    "readme": "bin/gogs-migrate --help | help2md-in-place README.md"
+  },
   "dependencies": {
     "babel-runtime": "^4.6.6",
     "chalk": "^1.0.0",
@@ -41,11 +47,5 @@
     "babel": "^4.6.6",
     "help2md": "^1.0.0",
     "standard": "^4.0.1"
-  },
-  "scripts": {
-    "build": "babel src -d .",
-    "prepublish": "npm run build",
-    "test": "cd src && standard",
-    "readme": "bin/gogs-migrate --help | help2md-in-place README.md"
   }
 }
