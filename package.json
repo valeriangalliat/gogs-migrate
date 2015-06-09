@@ -39,11 +39,13 @@
   },
   "devDependencies": {
     "babel": "^4.6.6",
-    "help2md": "^1.0.0"
+    "help2md": "^1.0.0",
+    "standard": "^4.0.1"
   },
   "scripts": {
     "build": "babel src -d .",
-    "prepublish": "$npm_package_scripts_build",
+    "prepublish": "npm run build",
+    "test": "cd src && standard",
     "readme": "bin/gogs-migrate --help | help2md-in-place README.md"
   }
 }
