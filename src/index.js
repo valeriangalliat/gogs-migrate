@@ -10,31 +10,33 @@ export default opts => repo =>
   request(`${opts.prefix}${migrate}`, {
     method: 'post',
     json: true,
+    headers: {
+      authorization: `token ${opts.token}`
+    },
     form: Object.assign(
-      { username: opts.user, password: opts.pass, uid: opts.uid },
-
       {
+        uid: opts.uid,
         clone_addr: repo.url,
         repo_name: repo.name,
         desc: repo.desc
       },
 
-      repo.private && { private: 'on' },
+      repo.private && { private: true },
 
       opts.auth && {
         auth_username: opts.auth.user,
         auth_password: opts.auth.pass
       },
 
-      opts.mirror && { mirror: 'on' },
-      opts.private && { private: 'on' },
+      opts.mirror && { mirror: true },
+      opts.private && { private: true },
 
       {}
     )
   })
     .doto(response => {
       if (response.statusCode === 500) return // 500 errors have a JSON message.
-      if (response.statusCode === 200) return // JSON response.
+      if (response.statusCode === 200 || response.statusCode === 201) return // JSON response.
       throw err(repo, `Unexpected status ${response.statusCode} from ${opts.prefix}${migrate}`)
     })
 

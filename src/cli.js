@@ -22,8 +22,7 @@ Options:
   -V, --version             Show version.
   -c, --config=<path>       Read options from given YAML configuration file.
   --gogs-prefix=<prefix>    Gogs URL prefix (like \`https://git.example.com\`).
-  --gogs-user=<user>        Gogs username (required, prompt otherwise).
-  --gogs-pass=<pass>        Gogs password (required, prompt otherwise).
+  --gogs-token=<token>      Gogs access token (required, prompt otherwise).
   --gogs-uid=<uid>          Gogs UID (required, prompt otherwise).
   --github-prefix=<prefix>  GitHub API prefix (defaults to \`https://api.github.com\`).
   --github-user=<user>      GitHub username to stream repositories from.
@@ -78,8 +77,7 @@ const ask = question =>
 const prompt = opts =>
   _([
     ['--gogs-prefix', { prompt: ask('Gogs URL (example: `https://git.example.com`):') }],
-    ['--gogs-user', { prompt: ask('Gogs user:') }],
-    ['--gogs-pass', { prompt: ask('Gogs pass (will not echo):'), silent: true }],
+    ['--gogs-token', { prompt: ask('Gogs token:') }],
     ['--gogs-uid', { prompt: ask('Gogs UID:') }]
   ])
     .flatMap(maybePrompt(opts))
@@ -168,8 +166,7 @@ const main = opts => {
   const repoStream = repos(opts)
     .flatMap(migrate({
       prefix: opts['--gogs-prefix'],
-      user: opts['--gogs-user'],
-      pass: opts['--gogs-pass'],
+      token: opts['--gogs-token'],
       uid: opts['--gogs-uid'],
       mirror: opts['--mirror'],
       private: opts['--private']

@@ -24,12 +24,11 @@ thing is [there's an API][migrate-api] to automate this task.
 mirror) all your repositories from different sources (currently only
 GitHub public repositories are supported), to your Gogs instance.
 
-You need to configure your Gogs URL (`--gogs`), and your account
-username, password and UID (`--gogs-user`, `--gogs-pass` and
-`--gogs-uid`). If those options are not passed via CLI, and a
-[configuration file](#configuration) is given (`--config`), gogs-migrate
-will try to read them from the configuration file. Otherwise, it will
-prompt for the missing options.
+You need to configure your Gogs URL (`--gogs`), access token and UID
+(`--gogs-token`, and `--gogs-uid`). If those options are not passed via
+CLI, and a [configuration file](#configuration) is given (`--config`),
+gogs-migrate will try to read them from the configuration file.
+Otherwise, it will prompt for the missing options.
 
 Then, you can configure a source for the repositories to migrate.
 Currently, only GitHub is supported, with the `--github-user` option. It
@@ -59,8 +58,7 @@ Name | Description
 `-V, --version` | Show version.
 `-c, --config=<path>` | Read options from given YAML configuration file.
 `--gogs-prefix=<prefix>` | Gogs URL prefix (like `https://git.example.com`).
-`--gogs-user=<user>` | Gogs username (required, prompt otherwise).
-`--gogs-pass=<pass>` | Gogs password (required, prompt otherwise).
+`--gogs-token=<token>` | Gogs access token (required, prompt otherwise).
 `--gogs-uid=<uid>` | Gogs UID (required, prompt otherwise).
 `--github-prefix=<prefix>` | GitHub API prefix (defaults to `https://api.github.com`).
 `--github-user=<user>` | GitHub username to stream repositories from.
@@ -80,7 +78,7 @@ removed.
 
 ```yaml
 gogs: https://git.example.com
-gogs-user: foo
+gogs-token: foo
 gogs-uid: 42
 github-user: bar
 mirror: true
