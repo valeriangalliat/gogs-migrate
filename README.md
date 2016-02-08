@@ -41,6 +41,25 @@ On Gogs side, you can pass `--mirror` so the migrated repositories are
 flagged as mirrors (Gogs will update them periodically), and `--private`
 to make them private.
 
+Installation
+------------
+
+### With npm
+
+```sh
+npm install -g gogs-migrate
+```
+
+### Manually
+
+Clone this repository, then in the directory:
+
+```sh
+npm install
+```
+
+You can now use `bin/gogs-migrate` (or put `$PWD/bin` in your `PATH`).
+
 <!-- BEGIN USAGE -->
 
 Usage
