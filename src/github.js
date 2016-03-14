@@ -16,10 +16,11 @@ const pages = opts =>
 
 // Get raw API GitHub user repositories.
 export const rawRepos =
-  ({ user, prefix = 'https://api.github.com', agent = 'gogs-migrate' }) =>
+  ({ user, token, prefix = 'https://api.github.com', agent = 'gogs-migrate' }) =>
     pages({
       url: `${prefix}/users/${user}/repos`,
       headers: { 'user-agent': agent },
+      auth: token && { user, pass: token },
       json: true
     })
       .flatten()

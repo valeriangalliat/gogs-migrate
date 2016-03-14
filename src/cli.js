@@ -26,6 +26,7 @@ Options:
   --gogs-uid=<uid>          Gogs UID (required, prompt otherwise).
   --github-prefix=<prefix>  GitHub API prefix (defaults to \`https://api.github.com\`).
   --github-user=<user>      GitHub username to stream repositories from.
+  --github-token=<token>    GitHub user token to access private repositories.
   --mirror                  Create mirror repositories.
   --private                 Force private repositories (copy source visibility otherwise).
   --with-forks              Include forked repositories.
@@ -101,6 +102,7 @@ const repos = opts =>
     // From GitHub.
     opts['--github-user'] && github.repos({
       user: opts['--github-user'],
+      token: opts['--github-token'] || undefined,
       prefix: opts['--github-prefix'] || undefined
     })
 
